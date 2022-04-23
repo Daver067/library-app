@@ -14,10 +14,43 @@
         <div class="header"><h1>Your Own Personal Library!</h1></div>
         <div class="empty one"></div>
         <div class="library">
-                <div class="controls"></div>
+                <div class="controls">
+                    <div class="header">
+                        <h3 style="margin: auto;">Add a book to your Library!</h1>
+                    </div>
+                    <div class="input">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author" placeholder="J.R.R, Tolkien">
+                    </div>
+
+                    <div class="input">
+                        <label for="title">Title: </label>
+                        <input type="text" name="title" id="title" placeholder="The Hobbit">
+                    </div>
+
+                    <div class="input">
+                        <label for="pages">Pages: </label>
+                        <input type="number" name="pages" id="pages" placeholder="420">
+                    </div>
+                    <div class="submitBtn"><button type="submit">Add Book</button></div>
+                    
+                </div>
                 <div class="books">
-                    <div class="book">book1</div>
-                    <div class="book">book2</div>
+                    <div class="book">
+                        <div class="author">J.R.R. Tolkien</div>
+                        <div class="title">The Hobbit</div>
+                        <div class="pages-read">
+                            <div class="pages">Pages: 420</div>
+                            <div class="readStatus">Unread</div>
+                        </div>
+                        <div class="readBtn">
+                            <div class="svg"><img src="./images/cancel.svg" alt="delete"></div>
+                            <div class="svg"><img src="./images/check.svg" alt="read"></div>
+                        </div>
+                    </div>
+                    <div class="book">book3</div>
+                    <div class="book">book3</div>
+                    <div class="book">book3</div>
                     <div class="book">book3</div>
                 </div>
         </div>

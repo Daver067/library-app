@@ -2,51 +2,134 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    height: 100%;
+}
 .container {
     display: grid;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     grid-template-columns: 1fr 6fr 1fr;
     grid-template-rows: 2fr 10fr 0.5fr;
 }
 .header {
     grid-area: 1/1/2/4;
-    border: 1px solid black;
     background-color:#d97706;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 0 0 8px 1px;
 }
+.empty{
+    background-color: #b9b7b5;
+}
+
 .empty .one{
     grid-area: 2/1/3/2;
-
 }
 .library {
     grid-area: 2/2/3/3;
-    border: 1px solid black;
-
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 6fr;
-
+    grid-template-rows: 1.25fr 6fr;
+    background-color: #b9b7b5;
 }
+
 .controls {
     grid-area: 1/1/2/2;
     box-sizing: border-box;
-    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
+.controls > .header {
+    background-color: #b9b7b5;
+    box-shadow: none;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 2px;
+    text-align: center;
+}
+
+input {
+    border-radius: 10px;
+    padding-left: 8px;
+    background-color: azure;
+}
+
+.submitBtn {
+    display: inline-block;
+    padding-left: 65%;
+    padding-bottom: 5px;
+}
+.submitBtn > button {
+    height: 2em;
+    width: 10em;
+    border-radius: 12px;
+    color: white;
+    background-color: #24a0ed;
+}
+
+
 .books {
     box-sizing: border-box;
-    border: 1px solid red;
+    border-radius: 8px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, 100px);
+    grid-template-rows: repeat(auto-fill, 100px);
+    grid-auto-rows: 100px;
+    gap: 2px;
 }
 .book {
-    border: 1px solid purple;
+    background-color:  #6361dd;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 2.0fr 3.5fr 1.0fr 0.5fr;
+    box-shadow: inset 0 0 20px 4px;
 }
+
+.author {
+    align-self: center;
+    font-size: 26px;
+    padding-left: 8%;
+}
+
+.title {
+    align-self: center;
+    justify-self: center;
+    padding-right: 9%;
+    font-size: 26px;
+}
+
+.pages-read {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;    
+}
+
+.readBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+}
+
+.readBtn img {
+    width: auto;
+    height: 1rem;
+}
+
+.svg {
+    display: flex;
+}
+
 .empty .two {
     grid-area: 2/3/3/4;
+
 
 }
 .footer {
