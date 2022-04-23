@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,27 +15,31 @@
         <div class="empty one"></div>
         <div class="library">
                 <div class="controls">
-                    <div class="header">
-                        <h3 style="margin: auto;">Add a book to your Library!</h1>
+                    <div class="test">
+                        <div class="header2">
+                            <h3>Add a book!</h3>
+                        </div>
+                        <div class="input">
+                            <label for="author">Author:</label>
+                            <input type="text" name="author" id="author" placeholder="J.R.R, Tolkien">
+                        </div>
+                        <div class="input">
+                            <label for="title">Title: </label>
+                            <input type="text" name="title" id="title" placeholder="The Hobbit">
+                        </div>
+                        <div class="input">
+                            <label for="pages">Pages: </label>
+                            <input type="number" name="pages" id="pages" placeholder="420">
+                        </div>
+                        <div class="input">
+                            <label for="read-unread" class="switch">Check if read:</label>
+                            <input type="checkbox" name="read-unread" id="read-unread" value="false">
+                        </div>
+                        <div class="submitBtn"><button type="submit" id="submitBtn">Add Book</button></div>
+                        
                     </div>
-                    <div class="input">
-                        <label for="author">Author:</label>
-                        <input type="text" name="author" id="author" placeholder="J.R.R, Tolkien">
-                    </div>
-
-                    <div class="input">
-                        <label for="title">Title: </label>
-                        <input type="text" name="title" id="title" placeholder="The Hobbit">
-                    </div>
-
-                    <div class="input">
-                        <label for="pages">Pages: </label>
-                        <input type="number" name="pages" id="pages" placeholder="420">
-                    </div>
-                    <div class="submitBtn"><button type="submit">Add Book</button></div>
-                    
                 </div>
-                <div class="books">
+                <div class="books" id="books">
                     <div class="book">
                         <div class="author">J.R.R. Tolkien</div>
                         <div class="title">The Hobbit</div>
@@ -48,10 +52,6 @@
                             <div class="svg"><img src="./images/check.svg" alt="read"></div>
                         </div>
                     </div>
-                    <div class="book">book3</div>
-                    <div class="book">book3</div>
-                    <div class="book">book3</div>
-                    <div class="book">book3</div>
                 </div>
         </div>
         <div class="empty two"></div>
