@@ -5,6 +5,7 @@ const titleInput = document.getElementById("title");
 const pageInput = document.getElementById("pages");
 const readUnreadInput = document.getElementById("read-unread");
 const putNewBooksHere = document.getElementById('books');
+let toggleRead = document.querySelectorAll('img')
 
 //Checking whether the checkbox is checked or not
 function checkedOrNot(checkbox){
@@ -17,6 +18,8 @@ addBookBtn.addEventListener('click', () => {
     let thisBook = createBook(book);
     console.log(typeof(thisBook))
     putNewBooksHere.appendChild(thisBook);
+    toggleRead = document.querySelectorAll('img');
+    EraseBookAndChangeReadStatus();
 })
 
 //making a new book object with form info
@@ -62,3 +65,24 @@ function addTheSVG(whichOne){
     svg.src = `./images/${whichOne}.svg`;
     return svg;
 }
+
+//clicking checkmark to toggle read and cancel to delete book
+function EraseBookAndChangeReadStatus() {toggleRead.forEach(img => img.addEventListener('click', () => {
+        let attribute = img.getAttribute("src")
+        if (attribute == "./images/cancel.svg"){
+            let parentSvg = img.parentNode;
+            let parentreadBtn = parentSvg.parentNode;
+            let parentBook = parentreadBtn.parentNode;
+            let parentBooks = parentBook.parentNode;
+            parentBooks.removeChild(parentBook);
+        }
+        else {
+        let parentSvg = img.parentNode;
+        let parentreadBtn = parentSvg.parentNode;
+        let siblingPagesRead = parentreadBtn.previousSibling.previousSibling;
+        let readOrUnread = siblingPagesRead.lastChild.previousSibling;
+        readOrUnread.innerHTML == "Unread" ? readOrUnread.innerHTML = "Read" : readOrUnread.innerHTML = "Unread";
+    }
+        }))}
+
+        EraseBookAndChangeReadStatus()
