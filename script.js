@@ -7,6 +7,7 @@ const readUnreadInput = document.getElementById("read-unread");
 const putNewBooksHere = document.getElementById('books');
 let toggleRead = document.querySelectorAll('img')
 
+
 //Checking whether the checkbox is checked or not
 function checkedOrNot(checkbox){
     return ((readUnreadInput.checked == false) ? 'Unread' : 'Read');
@@ -16,7 +17,6 @@ function checkedOrNot(checkbox){
 addBookBtn.addEventListener('click', () => {
     let book = new newBook(authorInput.value, titleInput.value, pageInput.value, readUnreadInput.value);
     let thisBook = createBook(book);
-    console.log(typeof(thisBook))
     putNewBooksHere.appendChild(thisBook);
     toggleRead = document.querySelectorAll('img');
 })
@@ -31,14 +31,14 @@ function newBook(authorInput, titleInput, pageInput, readUnreadInput) {
 
 
 //make a dom element book with object values
-function createBook(newBook){
+function createBook(libraryBook){
    let book = createNewDiv('book');
-   book.appendChild(createNewDiv('author', newBook.author));
-   book.appendChild(createNewDiv('title', newBook.title));
+   book.appendChild(createNewDiv('author', libraryBook.author));
+   book.appendChild(createNewDiv('title', libraryBook.title));
    let pagesRead = createNewDiv('pages-read');
    book.appendChild(pagesRead);
-   pagesRead.appendChild(createNewDiv('pages', ('Pages: ' + newBook.pages)));
-   pagesRead.appendChild(createNewDiv('readStatus', newBook.read));
+   pagesRead.appendChild(createNewDiv('pages', ('Pages: ' + libraryBook.pages)));
+   pagesRead.appendChild(createNewDiv('readStatus', libraryBook.read));
    let readBtn = createNewDiv('readBtn');
    book.appendChild(readBtn);
    let svgDelete = createNewDiv('svg');
@@ -85,3 +85,4 @@ toggleRead.forEach(img => img.addEventListener('click', () => {
         return
     }
         }))
+        
