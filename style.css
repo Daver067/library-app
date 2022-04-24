@@ -134,6 +134,9 @@ input {
     width: auto;
     height: 1.3rem;
 }
+.readBtn img:hover {
+    height: 1.5rem;
+}
 
 .svg {
     display: flex;

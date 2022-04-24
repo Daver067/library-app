@@ -19,7 +19,6 @@ addBookBtn.addEventListener('click', () => {
     console.log(typeof(thisBook))
     putNewBooksHere.appendChild(thisBook);
     toggleRead = document.querySelectorAll('img');
-    EraseBookAndChangeReadStatus();
 })
 
 //making a new book object with form info
@@ -67,7 +66,7 @@ function addTheSVG(whichOne){
 }
 
 //clicking checkmark to toggle read and cancel to delete book
-function EraseBookAndChangeReadStatus() {toggleRead.forEach(img => img.addEventListener('click', () => {
+toggleRead.forEach(img => img.addEventListener('click', () => {
         let attribute = img.getAttribute("src")
         if (attribute == "./images/cancel.svg"){
             let parentSvg = img.parentNode;
@@ -75,14 +74,14 @@ function EraseBookAndChangeReadStatus() {toggleRead.forEach(img => img.addEventL
             let parentBook = parentreadBtn.parentNode;
             let parentBooks = parentBook.parentNode;
             parentBooks.removeChild(parentBook);
+            
         }
         else {
         let parentSvg = img.parentNode;
         let parentreadBtn = parentSvg.parentNode;
-        let siblingPagesRead = parentreadBtn.previousSibling.previousSibling;
-        let readOrUnread = siblingPagesRead.lastChild.previousSibling;
+        let siblingPagesRead = parentreadBtn.previousSibling;
+        let readOrUnread = siblingPagesRead.lastChild;
         readOrUnread.innerHTML == "Unread" ? readOrUnread.innerHTML = "Read" : readOrUnread.innerHTML = "Unread";
+        return
     }
-        }))}
-
-        EraseBookAndChangeReadStatus()
+        }))
