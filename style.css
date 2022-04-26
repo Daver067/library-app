@@ -4,13 +4,14 @@
 }
 html, body {
     height: 100%;
+    width: 100%;
 }
 .container {
     display: grid;
     height: 100%;
     width: 100%;
     grid-template-columns: 1fr 6fr 1fr;
-    grid-template-rows: 2fr 10fr 0.5fr;
+    grid-template-rows: minmax(150px, 2fr) 10fr 0.5fr;
 }
 .header {
     grid-area: 1/1/2/4;
@@ -31,7 +32,7 @@ html, body {
     grid-area: 2/2/3/3;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 25% 6fr;
+    grid-template-rows: 165px 1fr;
     background-color: #b9b7b5;
     align-items: center;
 }
@@ -94,6 +95,7 @@ input {
     grid-template-rows: repeat(auto-fill, 100px);
     grid-auto-rows: 100px;
     gap: 2px;
+    
 }
 .book {
     background-color:  #6361dd;
