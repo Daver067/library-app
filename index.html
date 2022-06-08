@@ -18,45 +18,60 @@
             <div class="header2">
               <h3>Add a book!</h3>
             </div>
-            <div class="input">
-              <label for="author">Author:</label>
-              <input
-                type="text"
-                name="author"
-                id="author"
-                placeholder="J.R.R, Tolkien"
-              />
-            </div>
-            <div class="input">
-              <label for="title">Title: </label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="The Hobbit"
-              />
-            </div>
-            <div class="input">
-              <label for="pages">Pages: </label>
-              <input type="number" name="pages" id="pages" placeholder="420" />
-            </div>
-            <div class="input">
-              <label for="read-unread" class="switch">Check if read:</label>
-              <input
-                type="checkbox"
-                name="read-unread"
-                id="read-unread"
-                value="false"
-              />
-            </div>
-            <div class="submitBtn">
-              <button type="submit" id="submitBtn">Add Book</button>
-            </div>
+
+            <form action="" method="post" id="form">
+              <div class="input">
+                <label for="author">Author:</label>
+                <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  placeholder="J.R.R, Tolkien"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="title">Title: </label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="The Hobbit"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="pages">Pages: </label>
+                <input
+                  type="number"
+                  name="pages"
+                  id="pages"
+                  placeholder="420"
+                  required
+                  min="1"
+                  max="9999"
+                />
+              </div>
+              <div class="input">
+                <label for="read-unread" class="switch">Check if read:</label>
+                <input
+                  type="checkbox"
+                  name="read-unread"
+                  id="read-unread"
+                  value="false"
+                />
+              </div>
+              <div class="submitBtn">
+                <button type="submit" id="submitBtn">Add Book</button>
+              </div>
+            </form>
           </div>
         </div>
         <div class="books" id="books"></div>
       </div>
+
       <div class="empty two"></div>
+
       <div class="footer">
         &copy The Daver gets to move to CostaRica project 2022
       </div>

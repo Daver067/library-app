@@ -3,11 +3,48 @@ const addBookBtn = document.getElementById("submitBtn");
 const authorInput = document.getElementById("author");
 const titleInput = document.getElementById("title");
 const pageInput = document.getElementById("pages");
+const form = document.getElementById("form");
 const readUnreadInput = document.getElementById("read-unread");
 const putNewBooksHere = document.getElementById("books");
 let toggleRead = document.querySelectorAll("img");
 
-//Changed book constructor to a class constructo
+//Author Validation
+authorInput.addEventListener("input", () => {
+  authorInput.setCustomValidity("");
+  authorInput.checkValidity();
+});
+
+authorInput.addEventListener("invalid", () => {
+  if (authorInput.value === "") {
+    authorInput.setCustomValidity("Enter an Author!");
+  }
+});
+
+//Title Validation
+titleInput.addEventListener("input", () => {
+  titleInput.setCustomValidity("");
+  titleInput.checkValidity();
+});
+
+titleInput.addEventListener("invalid", () => {
+  if (titleInput.value === "") {
+    titleInput.setCustomValidity("Enter a Title!");
+  }
+});
+
+//Pages Validation
+pageInput.addEventListener("input", () => {
+  pageInput.setCustomValidity("");
+  pageInput.checkValidity();
+});
+
+pageInput.addEventListener("invalid", () => {
+  if (pageInput.value === "") {
+    pageInput.setCustomValidity("Enter a number of pages between 1-9999!");
+  }
+});
+
+//Changed book constructor to a class constructor
 class book {
   constructor(author, title, pages, read) {
     (this.author = author),
@@ -52,13 +89,14 @@ function addBookToLibrary(book) {
 }
 
 //clicking the add a book button
-addBookBtn.addEventListener("click", () => {
-  let thisBook = new book(
-    authorInput.value,
-    titleInput.value,
-    pageInput.value,
-    readUnreadInput.value
-  );
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let bookData = new FormData(document.forms.form);
+  let author = bookData.get("author");
+  let title = bookData.get("title");
+  let pages = bookData.get("pages");
+  let read = bookData.get("read-unread");
+  let thisBook = new book(author, title, pages, read);
   clearLibrary();
   addBookToLibrary(thisBook);
   updateLibrary();
